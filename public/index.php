@@ -3,9 +3,8 @@
 require_once dirname(__DIR__) . '/config/init.php';
 
 use eshop\App;
+use eshop\Router;
 
 new App();
 
-App::$app->set('test', 'test value');
-
-throw new Exception("Not Found", 404);
+dumper(Router::getRoutes());

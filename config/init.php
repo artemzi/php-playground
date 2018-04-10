@@ -11,6 +11,7 @@ define("LIBS", ROOT . '/vendor/eshop/core/libs');
 define("CACHE", ROOT . '/tmp/cache');
 define("CONFIG", ROOT . '/config');
 define("LAYOUT", 'default');
+define("ROUTES", CONFIG . '/routes.php');
 
 // URLs
 define("BASE_URL", "http://{$_SERVER['HTTP_HOST']}");
@@ -18,7 +19,9 @@ define("ADMIN", BASE_URL . '/admin');
 
 // Requires
 require_once ROOT . '/vendor/autoload.php';
+require_once LIBS . '/functions.php';
+require_once ROUTES;
 
 if (DEBUG) {
-    require_once LIBS . '/functions.php';
+    // require_once LIBS . '/functions.php';
 }

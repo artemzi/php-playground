@@ -2,9 +2,6 @@
 
 namespace eshop;
 
-use eshop\Registry;
-use eshop\ErrorHandler;
-
 class App {
 
     public static $app;
@@ -17,6 +14,7 @@ class App {
         $this->getParams();
 
         new ErrorHandler();
+        Router::dispatch($query);
     }
 
     protected function getParams() {
