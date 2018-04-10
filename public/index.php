@@ -6,5 +6,3 @@ use eshop\App;
 use eshop\Router;
 
 new App();
-
-dumper(Router::getRoutes());

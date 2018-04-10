@@ -180,7 +180,7 @@ p a:hover{
 <body>
 <div class="wrap">
     <div class="logo">
-        <img src="img/404.png" alt=""  />
+        <img src="<?= BASE_URL; ?>/img/404.png" alt=""  />
         <p><a href="<?= BASE_URL; ?>">Go back to Home</a></p>
     </div>
 </div>
