@@ -3,6 +3,7 @@
 namespace eshop;
 
 use eshop\Registry;
+use eshop\ErrorHandler;
 
 class App {
 
@@ -14,6 +15,8 @@ class App {
         
         self::$app = Registry::getInstance();
         $this->getParams();
+
+        new ErrorHandler();
     }
 
     protected function getParams() {

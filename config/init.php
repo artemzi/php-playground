@@ -19,6 +19,6 @@ define("ADMIN", BASE_URL . '/admin');
 // Requires
 require_once ROOT . '/vendor/autoload.php';
 
-if (DEBUG === 1) {
+if (DEBUG) {
     require_once LIBS . '/functions.php';
 }

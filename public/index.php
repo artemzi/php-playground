@@ -7,4 +7,5 @@ use eshop\App;
 new App();
 
 App::$app->set('test', 'test value');
-dumper(App::$app->getAllProps());
+
+throw new Exception("Not Found", 404);
