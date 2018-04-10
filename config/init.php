@@ -1,4 +1,7 @@
 <?php
+
+date_default_timezone_set("Europe/Moscow");
+
 // App debug mode
 define("DEBUG", 1);
 
