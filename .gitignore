@@ -2,3 +2,6 @@
 .idea/*
 
 composer.lock
+*.log
+vendor/gabordemooij/*
+tmp/cache/*
