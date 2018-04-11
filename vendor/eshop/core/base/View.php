@@ -21,7 +21,7 @@ class View {
         $this->prefix = $route['prefix'];
         $this->meta = $meta;
         
-        if (layout === false) {
+        if ($layout === false) {
             $this->layout = false;
         } else {
             $this->layout = $layout ?: LAYOUT;

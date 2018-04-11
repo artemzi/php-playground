@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 
+use RedBeanPHP\R;
+
 class MainController extends DefaultController {
 
     public function indexAction() {
@@ -10,8 +12,8 @@ class MainController extends DefaultController {
         // App::$app->getProperty('shop_name');
         $this->setMeta('Main page', 'description...', 'main');
 
-        $name = 'John Smith';
-        $age = 30;
-        $this->set(compact('name', 'age'));
+        $posts = R::findAll('test');
+        $post = R::find('test', 'id=?', [2]); // debug; TODO: remove it or use
+        $this->set(compact('posts'));
     }
 }
