@@ -20,6 +20,7 @@ class Router {
     }
 
     public static function dispatch($url) {
+        $url = self::removeQueryString($url);
         if (self::matchRoute($url)) {
             $controller = 'app\controllers\\' . self::$route['prefix'] . 
                 self::$route['controller'] . 'Controller';
@@ -73,5 +74,17 @@ class Router {
     // convert result of 'self::formatControllerName' to 'camelCase'
     protected static function formatActionName($name) {
         return lcfirst(self::formatControllerName($name));
+    }
+
+    protected static function removeQueryString($url) {
+        if($url) {
+            $params = explode('&', $_SERVER['QUERY_STRING'], 2);
+            $url = ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/');
+            if ($url[-1] === '/') {
+                return rtrim($url, '/');
+            } else {
+                return $url;
+            }
+        }
     }
 }
