@@ -26,8 +26,9 @@ class Router {
                 if (class_exists($controller)) {
                     $controllerObject = new $controller(self::$route);
                     $action = self::formatActionName(self::$route['action'])  . 'Action';
-                    if (\method_exists($controllerObject, $action)) {
+                    if (method_exists($controllerObject, $action)) {
                         $controllerObject->$action();
+                        $controllerObject->getView();
                     } else {
                         throw new \Exception("Method {$controllerObject->$action} not found", 404);
                     }
