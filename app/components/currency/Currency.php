@@ -8,16 +8,16 @@ use RedBeanPHP\R;
 
 class Currency {
 
-    protected $tpl;
-    protected $currencies;
-    protected $currency;
+    private $tpl;
+    private $currencies;
+    private $currency;
 
     public function __construct() {
         $this->tpl = __DIR__ . '/currency_tpl/currency.php';
         $this->run();
     }
 
-    protected function run() {
+    private function run() {
         $this->currencies = App::$app->getProperty('currencies');
         $this->currency = App::$app->getProperty('currency');
         echo $this->getHtml();
@@ -40,7 +40,7 @@ class Currency {
         return $currency;
     }
 
-    protected function getHtml() {
+    private function getHtml() {
         ob_start();
         require_once $this->tpl;
         return ob_get_clean();
