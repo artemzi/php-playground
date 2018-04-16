@@ -40,6 +40,7 @@
 	<!--about-end-->
 <!--product-starts-->
 <?php if(isset($hits) && is_array($hits)):?>
+<?php  $curr = \eshop\App::$app->getProperty('currency');?>
 <div class="product">
     <div class="container">
         <div class="product-top">
@@ -55,10 +56,10 @@
                             <p>Explore Now</p>
                             <h4>
                                 <a class="add-to-cart-link" href="cart/add?<?=$hit->id;?>"><i></i></a> <span class=" item_price">
-                                    $ <?=$hit->price;?>
+                                    <?=$curr['symbol_left'];?> <?=$hit->price * $curr['value'];?> <?=$curr['symbol_right'];?>
                                 </span>
                                 <?php if(isset($hit->old_price) && $hit->old_price > 0):?>
-                                    <small><del>$ <?=$hit->old_price;?></del></small>
+                                    <small><del>$ <?=$hit->old_price * $curr['value'];?></del></small>
                                 <?php endif;?>
                             </h4>
                         </div>
