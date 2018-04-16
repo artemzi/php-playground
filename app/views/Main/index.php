@@ -17,7 +17,7 @@
 	</div>
 	<!--banner-ends-->
 	<!--about-starts-->
-<?php if(isset($brands)):?>
+<?php if(isset($brands) && is_array($brands)):?>
 <div class="about">
     <div class="container">
         <div class="about-top grid-1">
@@ -38,121 +38,44 @@
 </div>
 <?php endif;?>
 	<!--about-end-->
-	<!--product-starts-->
-	<div class="product">
-		<div class="container">
-			<div class="product-top">
-				<div class="product-one">
-					<div class="col-md-3 product-left">
-						<div class="product-main simpleCart_shelfItem">
-							<a href="/single.html" class="mask"><img class="img-responsive zoom-img" src="/images/p-1.png" alt="" /></a>
-							<div class="product-bottom">
-								<h3>Smart Watches</h3>
-								<p>Explore Now</p>
-								<h4><a class="item_add" href="/#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-							</div>
-							<div class="srch">
-								<span>-50%</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-left">
-						<div class="product-main simpleCart_shelfItem">
-							<a href="/single.html" class="mask"><img class="img-responsive zoom-img" src="/images/p-2.png" alt="" /></a>
-							<div class="product-bottom">
-								<h3>Smart Watches</h3>
-								<p>Explore Now</p>
-								<h4><a class="item_add" href="/#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-							</div>
-							<div class="srch">
-								<span>-50%</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-left">
-						<div class="product-main simpleCart_shelfItem">
-							<a href="/single.html" class="mask"><img class="img-responsive zoom-img" src="/images/p-3.png"  alt="" /></a>
-							<div class="product-bottom">
-								<h3>Smart Watches</h3>
-								<p>Explore Now</p>
-								<h4><a class="item_add" href="/#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-							</div>
-							<div class="srch">
-								<span>-50%</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-left">
-						<div class="product-main simpleCart_shelfItem">
-							<a href="/single.html" class="mask"><img class="img-responsive zoom-img" src="/images/p-4.png" alt="" /></a>
-							<div class="product-bottom">
-								<h3>Smart Watches</h3>
-								<p>Explore Now</p>
-								<h4><a class="item_add" href="/#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-							</div>
-							<div class="srch">
-								<span>-50%</span>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="product-one">
-					<div class="col-md-3 product-left">
-						<div class="product-main simpleCart_shelfItem">
-							<a href="/single.html" class="mask"><img class="img-responsive zoom-img" src="/images/p-5.png" alt="" /></a>
-							<div class="product-bottom">
-								<h3>Smart Watches</h3>
-								<p>Explore Now</p>
-								<h4><a class="item_add" href="/#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-							</div>
-							<div class="srch">
-								<span>-50%</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-left">
-						<div class="product-main simpleCart_shelfItem">
-							<a href="/single.html" class="mask"><img class="img-responsive zoom-img" src="/images/p-6.png" alt="" /></a>
-							<div class="product-bottom">
-								<h3>Smart Watches</h3>
-								<p>Explore Now</p>
-								<h4><a class="item_add" href="/#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-							</div>
-							<div class="srch">
-								<span>-50%</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-left">
-						<div class="product-main simpleCart_shelfItem">
-							<a href="/single.html" class="mask"><img class="img-responsive zoom-img" src="/images/p-7.png" alt="" /></a>
-							<div class="product-bottom">
-								<h3>Smart Watches</h3>
-								<p>Explore Now</p>
-								<h4><a class="item_add" href="/#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-							</div>
-							<div class="srch">
-								<span>-50%</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-left">
-						<div class="product-main simpleCart_shelfItem">
-							<a href="/single.html" class="mask"><img class="img-responsive zoom-img" src="/images/p-8.png" alt="" /></a>
-							<div class="product-bottom">
-								<h3>Smart Watches</h3>
-								<p>Explore Now</p>
-								<h4><a class="item_add" href="/#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-							</div>
-							<div class="srch">
-								<span>-50%</span>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--product-end-->
+<!--product-starts-->
+<?php if(isset($hits) && is_array($hits)):?>
+<div class="product">
+    <div class="container">
+        <div class="product-top">
+            <div class="product-one">
+            <?php foreach($hits as $hit):?>
+                <div class="col-md-3 product-left">
+                    <div class="product-main simpleCart_shelfItem">
+                        <a href="product/<?=$hit->alias;?>" class="mask">
+                            <img class="img-responsive zoom-img" src="/images/<?= $hit->img;?>" alt="" />
+                        </a>
+                        <div class="product-bottom">
+                            <h3><a href="product/<?=$hit->alias;?>" class="mask"><?=$hit->title;?></a></h3>
+                            <p>Explore Now</p>
+                            <h4>
+                                <a class="add-to-cart-link" href="cart/add?<?=$hit->id;?>"><i></i></a> <span class=" item_price">
+                                    $ <?=$hit->price;?>
+                                </span>
+                                <?php if(isset($hit->old_price) && $hit->old_price > 0):?>
+                                    <small><del>$ <?=$hit->old_price;?></del></small>
+                                <?php endif;?>
+                            </h4>
+                        </div>
+                        <?php if(isset($hit->old_price) && $hit->old_price > 0):?>
+                        <div class="srch">
+                            <span>
+                                 - <?= round((($hit->old_price - $hit->price) / $hit->old_price) * 100, 1);?>%
+                            </span>
+                        </div>
+                        <?php endif;?>
+                    </div>
+                </div>
+            <?php endforeach;?>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif;?>
+<!--product-end-->
