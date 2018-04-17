@@ -13,8 +13,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="megamenu/css/ionicons.min.css">
+<link rel="stylesheet" href="megamenu/css/style.css">
 <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 
 </head>
 <body>
@@ -66,14 +67,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="header">
 				<div class="col-md-9 header-left">
-                    <div class="menu">
-                        <?php new \app\components\menu\Menu([
-                            'tpl' => WWW . '/menu/menu.php',
-                            'attrs' => [
-                                    'style' => 'padding:1rem;',
-                                    'id' => 'menu'
-                            ]
-                        ]);?>
+                    <div class="menu-container">
+                        <div class="menu">
+                            <?php new \app\components\menu\Menu([
+                                'tpl' => WWW . '/menu/menu.php',
+                                'attrs' => [
+                                        'style' => 'padding:1rem;',
+                                        'id' => 'menu'
+                                ]
+                            ]);?>
+                        </div>
                     </div>
 				<div class="clearfix"> </div>
 			</div>
@@ -183,6 +186,7 @@ $(function () {
 
 });
 </script>
+<script src="megamenu/js/megamenu.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
