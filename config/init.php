@@ -6,6 +6,7 @@ date_default_timezone_set('Europe/Moscow');
 define('DEBUG', 1);
 
 // Paths
+define('PATH', '/');
 define('ROOT', dirname(__DIR__));
 define('WWW', ROOT . '/public');
 define('APP', ROOT . '/app');

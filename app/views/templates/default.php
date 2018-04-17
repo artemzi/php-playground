@@ -7,15 +7,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
+<base href="/">
 <?= $this->getMeta();?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="megamenu/css/ionicons.min.css">
 <link rel="stylesheet" href="megamenu/css/style.css">
-<link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
 </head>
 <body>
@@ -43,10 +45,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
-						<a href="/checkout.html">
+						<a href="checkout.html">
 							 <div class="total">
 								<span class="simpleCart_total"></span></div>
-								<img src="/images/cart-1.png" alt="" />
+								<img src="images/cart-1.png" alt="" />
 						</a>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 						<div class="clearfix"> </div>
@@ -59,7 +61,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
-		<a href="/index.html"><h1>Luxury Watches</h1></a>
+		<a href="<?=PATH;?>"><h1>Luxury Watches</h1></a>
 	</div>
 	<!--start-logo-->
 	<!--bottom-header-->
@@ -103,29 +105,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-3 infor-left">
 					<h3>Follow Us</h3>
 					<ul>
-						<li><a href="/#"><span class="fb"></span><h6>Facebook</h6></a></li>
-						<li><a href="/#"><span class="twit"></span><h6>Twitter</h6></a></li>
-						<li><a href="/#"><span class="google"></span><h6>Google+</h6></a></li>
+						<li><a href="#"><span class="fb"></span><h6>Facebook</h6></a></li>
+						<li><a href="#"><span class="twit"></span><h6>Twitter</h6></a></li>
+						<li><a href="#"><span class="google"></span><h6>Google+</h6></a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 infor-left">
 					<h3>Information</h3>
 					<ul>
-						<li><a href="/#"><p>Specials</p></a></li>
-						<li><a href="/#"><p>New Products</p></a></li>
-						<li><a href="/#"><p>Our Stores</p></a></li>
-						<li><a href="/contact.html"><p>Contact Us</p></a></li>
-						<li><a href="/#"><p>Top Sellers</p></a></li>
+						<li><a href="#"><p>Specials</p></a></li>
+						<li><a href="#"><p>New Products</p></a></li>
+						<li><a href="#"><p>Our Stores</p></a></li>
+						<li><a href="contact.html"><p>Contact Us</p></a></li>
+						<li><a href="#"><p>Top Sellers</p></a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 infor-left">
 					<h3>My Account</h3>
 					<ul>
-						<li><a href="/account.html"><p>My Account</p></a></li>
-						<li><a href="/#"><p>My Credit slips</p></a></li>
-						<li><a href="/#"><p>My Merchandise returns</p></a></li>
-						<li><a href="/#"><p>My Personal info</p></a></li>
-						<li><a href="/#"><p>My Addresses</p></a></li>
+						<li><a href="account.html"><p>My Account</p></a></li>
+						<li><a href="#"><p>My Credit slips</p></a></li>
+						<li><a href="#"><p>My Merchandise returns</p></a></li>
+						<li><a href="#"><p>My Personal info</p></a></li>
+						<li><a href="#"><p>My Addresses</p></a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 infor-left">
@@ -159,15 +161,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 	<!--footer-end-->
-<script src="/js/jquery-1.11.0.min.js"></script>
-<script src="/js/simpleCart.min.js"> </script>
-<script type="text/javascript" src="js/memenu.js"></script>
-<script>$(document).ready(function(){$(".memenu").memenu();});</script>
-<!--dropdown-->
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/simpleCart.min.js"> </script>
 <script src="js/jquery.easydropdown.js"></script>
-<script src="/js/responsiveslides.min.js"></script>
+<script src="js/responsiveslides.min.js"></script>
 <script>
-// You can also use "$(window).load(function() {"
 $(function () {
 // Slideshow 4
     $("#slider4").responsiveSlides({
@@ -187,6 +185,18 @@ $(function () {
 });
 </script>
 <script src="megamenu/js/megamenu.js"></script>
+    <!-- FlexSlider -->
+<script src="js/imagezoom.js"></script>
+<script defer src="js/jquery.flexslider.js"></script>
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
