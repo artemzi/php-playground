@@ -69,6 +69,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="menu">
                         <?php new \app\components\menu\Menu([
                             'tpl' => WWW . '/menu/menu.php',
+                            'attrs' => [
+                                    'style' => 'padding:1rem;',
+                                    'id' => 'menu'
+                            ]
                         ]);?>
                     </div>
 				<div class="clearfix"> </div>

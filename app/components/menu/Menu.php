@@ -14,8 +14,9 @@ class Menu {
     private $menuHtml;
     private $tpl;
     private $container = 'ul';
+    private $class = 'menu';
     private $table = 'category';
-    private $cache = 3600;
+    private $cacheTime = 3600;
     private $cacheKey = 'myapp_menu';
     private $attrs = [];
     private $prepend = '';
@@ -42,24 +43,54 @@ class Menu {
             if(!$this->data) {
                 $this->data = R::getAssoc("SELECT * FROM {$this->table}");
             }
+            $this->tree = $this->getTree();
+            $this->menuHtml = $this->getMenuHtml($this->tree);
+            if($this->cacheTime) {
+                $cache->set($this->cacheKey, $this->menuHtml, $this->cacheTime);
+            }
         }
         $this->output();
     }
 
     private function output() {
-        echo $this->menuHtml;
+        $attrs = '';
+        if(!empty($this->attrs)) {
+            foreach($this->attrs as $k => $v) {
+                $attrs .= " $k='$v' ";
+            }
+        }
+
+        echo "<{$this->container} class='{$this->class}' $attrs>";
+            echo $this->prepend;
+            echo $this->menuHtml;
+        echo "</{$this->container}>";
     }
 
     private function getTree() {
-
+        $tree = [];
+        $data = $this->data;
+        foreach($data as $id=>&$node) {
+            if(!$node['parent_id']) {
+                $tree[$id] = &$node;
+            } else {
+                $data[$node['parent_id']]['childs'][$id] = &$node;
+            }
+        }
+        return $tree;
     }
 
-    private function getMenuHtml($tree, $separator = '') {
-
+    private function getMenuHtml(Array $tree, $separator = '') {
+        $str = '';
+        foreach($tree as $id => $category) {
+            $str .= $this->categoryToTemplate($category, $separator, $id);
+        }
+        return $str;
     }
 
     private function categoryToTemplate($category, $separator, $id) {
-
+        ob_start();
+        require $this->tpl;
+        return ob_get_clean();
     }
 
 }
