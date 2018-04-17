@@ -223,5 +223,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     });
 </script>
 <script src="js/main.js"></script>
+<?php
+if(DEBUG) {
+    echo '<hr>';
+    echo '<h3>Debug info:</h3>';
+    $logs = \RedBeanPHP\R::getDatabaseAdapter()
+        ->getDatabase()
+        ->getLogger();
+
+    dumper( $logs->grep( 'SELECT' ) );
+}
+?>
 </body>
 </html>
