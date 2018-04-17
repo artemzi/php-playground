@@ -9,19 +9,10 @@ use RedBeanPHP\R;
 class MainController extends DefaultController {
 
     public function indexAction() {
-        // or use values from properties
-        // App::$app->getProperty('shop_name');
-        $cache = Cache::getInstance();
+        $brands = R::find('brand', 'LIMIT 3');
+        $hits = R::find('product', "hit = '1' AND status = '1' LIMIT 8"); // fields type is enum
         $this->setMeta('Main page', 'description...', 'main');
 
-        // if no posts in cache get it and set variable
-        $posts = $cache->get('posts');
-        if(!$posts) {
-            $data = R::findAll('test');
-            $cache->set('posts', $data);
-            $posts = $cache->get('posts');
-        }
-
-        $this->set(compact('posts'));
+        $this->set(compact('brands', 'hits'));
     }
 }

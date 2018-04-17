@@ -2,6 +2,8 @@
 
 use eshop\Router;
 
+
+Router::add('^product/?(?P<alias>[a-z0-9-]+)/?$', ['controller' => 'Product', 'action' => 'view']);
 // add user defined rules before defaults
 
 Router::add('^admin$', ['controller' => 'Admin', 'action' => 'index', 'prefix' => 'admin']);
